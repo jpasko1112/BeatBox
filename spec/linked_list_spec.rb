@@ -29,6 +29,7 @@ RSpec.describe LinkedList do
   describe '#count' do
     it 'can count the amount of nodes' do
       expect(@list.head).to eq(nil)
+      expect(@list.count).to eq(0)
       @list.append('doop')
       expect(@list.count).to eq(1)
       @list.append('deep')
@@ -42,6 +43,16 @@ RSpec.describe LinkedList do
       @list.append('doop')
       @list.append('deep')
       expect(@list.to_string).to eq('doop deep')
+    end
+  end
+
+  describe '#prepend' do
+    it 'can add nodes to the front of the list' do
+      @list.append('plop')
+      expect(@list.to_string).to eq('plop')
+      @list.append('suu')
+      @list.prepend('dop')
+      expect(@list.to_string).to eq('dop plop suu')
     end
   end
 end

@@ -9,14 +9,13 @@ class LinkedList
     if @head.nil?
       @head = Node.new(data)
     else
-      previous_node = @head
+      current_node = @head
       new_node = Node.new(data)
-      while previous_node.next_node != nil
-        previous_node = previous_node.next_node
+      until current_node.next_node == nil
+        current_node = current_node.next_node
       end
-      previous_node.next_node = new_node
+      current_node.next_node = new_node
     end
-    data
   end
 
   def count
@@ -30,7 +29,6 @@ class LinkedList
   end
 
   def to_string
-    # require 'pry'; binding.pry
     beats = []
     current_node = @head
     until current_node == nil
@@ -38,5 +36,12 @@ class LinkedList
       current_node = current_node.next_node
     end
     beats.join(" ")
+  end
+
+  def prepend(data)
+    oldhead = @head
+    @head = Node.new(data)
+    @head.next_node = oldhead
+    data
   end
 end

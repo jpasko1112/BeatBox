@@ -5,6 +5,6 @@ class Node
 
   def initialize(data)
   @data = data
-  @next_node = nil
+  @next_node = next_node
   end
 end
