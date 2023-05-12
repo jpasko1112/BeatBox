@@ -29,5 +29,14 @@ class LinkedList
     counter
   end
 
-  
+  def to_string
+    # require 'pry'; binding.pry
+    beats = []
+    current_node = @head
+    until current_node == nil
+      beats << current_node.data
+      current_node = current_node.next_node
+    end
+    beats.join(" ")
+  end
 end

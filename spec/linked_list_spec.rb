@@ -38,6 +38,7 @@ RSpec.describe LinkedList do
 
   describe '#to_string' do
     it 'retruns the linked list as a string' do
+      expect(@list.head).to eq(nil)
       @list.append('doop')
       @list.append('deep')
       expect(@list.to_string).to eq('doop deep')
