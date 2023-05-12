@@ -28,4 +28,6 @@ class LinkedList
     end
     counter
   end
+
+  
 end
