@@ -18,9 +18,17 @@ RSpec.describe LinkedList do
   describe '#append(data)' do
     it 'can append data' do
       expect(@list.head).to eq(nil)
-      expect(@list.append('doop')).to eq('doop')
+      @list.append('doop')
+      expect(@list.head.data).to eq('doop')
       expect(@list.head.next_node).to eq(nil)
-      expect(@list.head.next_node).to eq(nil)
+    end
+  end
+
+  describe '#count' do
+    it 'can count the amount of nodes' do
+      expect(@list.head).to eq(nil)
+      @list.append('doop')
+      expect(@list.count).to eq(1)
     end
   end
 end

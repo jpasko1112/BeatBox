@@ -18,4 +18,14 @@ class LinkedList
     end
     data
   end
+
+  def count
+    counter = 0
+    current_node = @head
+    until current_node == nil
+      current_node = current_node.next_node
+      counter += 1
+    end
+    counter
+  end
 end
