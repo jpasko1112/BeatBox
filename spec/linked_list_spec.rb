@@ -53,6 +53,33 @@ RSpec.describe LinkedList do
       @list.append('suu')
       @list.prepend('dop')
       expect(@list.to_string).to eq('dop plop suu')
+      expect(@list.count).to eq(3)
+    end
+  end
+
+  describe '#insert' do
+    it 'can insert nodes at give index' do
+      @list.append('plop')
+      @list.append('suu')
+      @list.prepend('dop')
+      expect(@list.to_string).to eq('dop plop suu')
+      expect(@list.count).to eq(3)
+      @list.insert(1, 'woo')
+      expect(@list.to_string).to eq('dop woo plop suu')
+      expect(@list.count).to eq(4)
+    end
+  end
+
+  describe '#find(index, num)' do
+    it 'can find index and return amount of data given' do
+      @list.append('deep')
+      @list.append('woo')
+      @list.append('shi')
+      @list.append('shu')
+      @list.append('blop')
+      # expect(@list.to_string).to eq('deep woo shi shu blop')
+      expect(@list.find(2, 1)).to eq('shi')
+      expect(@list.find(1, 3)).to eq('woo shi shu')
     end
   end
 end

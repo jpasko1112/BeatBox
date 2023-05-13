@@ -44,4 +44,27 @@ class LinkedList
     @head.next_node = oldhead
     data
   end
+
+  def insert(index, data)
+    current_node = @head
+    (index - 1).times do
+      current_node = current_node.next_node
+    end
+    to_insert = Node.new(data)
+    to_insert.next_node = current_node.next_node
+    current_node.next_node = to_insert
+  end
+
+  def find(index, num)
+    beats = []
+    current_node = @head
+    index.times do
+      current_node = current_node.next_node
+    end
+    while current_node != nil && beats.length < num
+      beats << current_node.data
+      current_node = current_node.next_node
+    end
+      beats.join(" ")
+  end
 end
