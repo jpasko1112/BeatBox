@@ -67,4 +67,14 @@ class LinkedList
     end
       beats.join(" ")
   end
+
+  def pop
+    current_node = @head
+    until current_node.next_node.next_node.nil?
+      current_node = current_node.next_node
+    end
+    tail = current_node.next_node
+    current_node.next_node = nil
+    tail.data
+  end
 end
